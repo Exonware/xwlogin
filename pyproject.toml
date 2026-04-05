@@ -1,0 +1,59 @@
+# Source size (src/*): ~811.5 KB
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "exonware-xwlogin"
+dynamic = ["version"]
+description = "Login layer for XW-Auth: IdP catalog, OAuth RP clients, WebAuthn/MFA, first-party authenticators"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [
+  { name = "eXonware Backend Team", email = "connect@exonware.com" },
+]
+keywords = ["oauth2", "oidc", "identity", "login", "providers", "exonware"]
+classifiers = []
+dependencies = [
+  "pyotp",
+  "exonware-xwauth",
+  "exonware-xwsystem",
+]
+
+[project.license]
+text = "MIT"
+
+[project.optional-dependencies]
+handlers = [
+  "fastapi>=0.104.0",
+  "exonware-xwaction",
+]
+dev = [
+  "pytest>=7.0.0",
+  "pytest-asyncio>=0.21.0",
+  "pytest-cov>=4.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/exonware/xwlogin"
+Repository = "https://github.com/exonware/xwlogin"
+Issues = "https://github.com/exonware/xwlogin/issues"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+asyncio_mode = "auto"
+addopts = ["--tb=short"]
+markers = [
+  "xwlogin_core: fast core / boundary tests (GUIDE_51)",
+  "xwlogin_unit: unit-layer tests (GUIDE_51)",
+]
+
+[tool.hatch.version]
+path = "src/exonware/xwlogin/version.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/exonware"]
+
+[tool.hatch.build.targets.sdist]
+include = ["/src", "/tests", "/README.md"]
