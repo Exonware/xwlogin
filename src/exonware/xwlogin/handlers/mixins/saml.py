@@ -15,8 +15,7 @@ from exonware.xwlogin.handlers.connector_http import (
     oauth_error_to_http,
     track_critical_handler,
 )
-from fastapi import Request
-from fastapi.responses import JSONResponse, RedirectResponse, Response
+from exonware.xwapi.http import JSONResponse, RedirectResponse, Request, Response
 
 # -----------------------------------------------------------------------------
 # GET /auth/sso/saml/metadata

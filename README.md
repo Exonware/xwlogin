@@ -1,19 +1,22 @@
 # xwlogin
 
-**Login layer** for the Exonware stack: OAuth/OIDC **identity providers** (100+ modules), **RP / agent clients** (`OAuth2Session`, token managers), **first-party login** (password, magic link, phone OTP, MFA, WebAuthn/passkeys), and callback discovery. **xwauth** remains the **connector** (OAuth2/OIDC AS, tokens, storage contracts, federation protocol core).
+**Login layer** for the Exonware stack: OAuth/OIDC **identity providers** (100+ modules), **RP / agent clients** (`OAuth2Session`, token managers), **first-party login** (password, magic link, phone OTP, MFA, WebAuthn/passkeys), and callback discovery. **xwauth** is the **OAuth2/OIDC AS connector** that **composes** this package (target: *xwlogin* has **no** dependency on *xwauth*; see **[REF_41_DEPENDENCY_DIRECTIONS.md](../.docs/guides/REF_41_DEPENDENCY_DIRECTIONS.md)** — migration in progress while `pyproject.toml` still lists `exonware-xwauth` to avoid a pip cycle).
 
 **Company:** eXonware.com · **Author:** eXonware Backend Team · **Email:** connect@exonware.com
 
 [![Python](https://img.shields.io/badge/python-3.12%2B-blue.svg)](https://www.python.org)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 
 ---
 
-## Install
+## 📦 Install
 
 ```bash
 pip install exonware-xwlogin
+pip install "exonware-xwlogin[stack]"   # optional: xwnode, xwdata, xwentity, xwmodels, xwquery, xwaction — xwjson is in [handlers]; xwschema via xwauth (REF_41 §8)
 ```
+
+After **`[stack]`**, optional: **`import exonware.xwlogin.stack`** at process startup to eagerly import that chain (REF_41 §8).
 
 `exonware-xwauth` is installed automatically as a dependency.
 
@@ -23,9 +26,11 @@ For FastAPI route mixins (`exonware.xwlogin.handlers.mixins`), install the optio
 pip install "exonware-xwlogin[handlers]"
 ```
 
+**Deployable hosts** (xwapi + xwaction pinned together) should prefer **`exonware-xwlogin-api`**, which is the composition package aligned with **REF_40** (same family as `exonware-xwauth-api`). Library-only users can stay on `exonware-xwlogin` without xwapi.
+
 ---
 
-## Usage
+## 🚀 Usage
 
 Prefer **xwlogin** as the import root for IdPs and connector façades; reach into **xwauth** only when you need the full AS surface (grants, federation internals, etc.):
 
@@ -40,7 +45,7 @@ For backwards compatibility, `from exonware.xwauth.providers import GoogleProvid
 
 ---
 
-## Layout
+## 🗂️ Layout
 
 | Package | Responsibility |
 |--------|------------------|
@@ -49,9 +54,9 @@ For backwards compatibility, `from exonware.xwauth.providers import GoogleProvid
 
 ---
 
-## License
+## 📜 License
 
 MIT — see [LICENSE](LICENSE) if present in your checkout.
-Version: 0.0.1.1 | Updated: 05-Apr-2026
+Version: 0.0.1.2 | Updated: 08-Apr-2026
 
 *Built with ❤️ by eXonware.com - Revolutionizing Python Development Since 2025*

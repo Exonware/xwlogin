@@ -6,8 +6,7 @@ from __future__ import annotations
 from typing import Any
 from urllib.parse import urlparse
 
-from fastapi import Request
-from fastapi.responses import JSONResponse
+from exonware.xwapi.http import JSONResponse, Request
 
 from exonware.xwaction import XWAction
 from exonware.xwaction.defs import ActionProfile

@@ -3,8 +3,7 @@
 
 from __future__ import annotations
 from typing import Any
-from fastapi import Request
-from fastapi.responses import JSONResponse
+from exonware.xwapi.http import JSONResponse, Request
 from exonware.xwaction import XWAction
 from exonware.xwaction.defs import ActionProfile
 from exonware.xwsystem.io.serialization.formats.text import json as xw_json
@@ -145,7 +144,7 @@ async def register_user(request: Request) -> Any:
         }
     },
     audit=True,
-    in_types={},  # Exclude Request parameter from schema (FastAPI dependency, not user input)
+    in_types={},  # Exclude Request parameter from schema (ASGI request, not user input)
 )
 async def get_current_user(request: Request) -> Any:
     user_id = await get_current_user_id(request)

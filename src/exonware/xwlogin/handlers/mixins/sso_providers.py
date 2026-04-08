@@ -11,8 +11,8 @@ from __future__ import annotations
 from typing import Any
 
 from collections.abc import Callable
-from fastapi import Request, Depends, Header, Form
-from fastapi.responses import JSONResponse, RedirectResponse, Response
+from exonware.xwapi.http import Depends, Form, Header, Request
+from exonware.xwapi.http import JSONResponse, RedirectResponse, Response
 from exonware.xwaction import XWAction
 from exonware.xwaction.defs import ActionProfile
 from exonware.xwsystem.security.oauth_errors import oauth_error_response

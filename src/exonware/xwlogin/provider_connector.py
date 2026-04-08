@@ -1,5 +1,7 @@
 """Connector primitives for the login-provider layer (OAuth IdP base, registry, enums, errors).
 
+**Target (REF_41):** provider bases/registry move into **xwlogin**; **xwauth** will import them. Until migration completes, definitions remain under **xwauth** and are re-exported here.
+
 Implementation stays in **xwauth**. IdP modules and ``callback_providers`` should import from here
 instead of ``exonware.xwauth.defs`` / ``providers.base`` / ``errors`` directly. Registry lookup errors use
 ``XWProviderNotFoundError`` / ``XWProviderConfigurationError`` from this module.

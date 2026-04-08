@@ -6,7 +6,7 @@ are not expressed as a single generic OAuth2 userinfo client here.
 Company: eXonware.com
 Author: eXonware Backend Team
 Email: connect@exonware.com
-Version: 0.0.1.1
+Version: 0.0.1.2
 Generation Date: 07-Apr-2026
 """
 from exonware.xwlogin.provider_connector import ProviderType

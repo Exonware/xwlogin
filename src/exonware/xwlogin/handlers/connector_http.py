@@ -1,7 +1,7 @@
 """Connector façade for login-provider HTTP handlers.
 
 Centralizes imports: **xwlogin.api_connector**, **xwlogin.auth_connector**, **xwlogin.security**,
-**xwlogin.handlers.connector_common** (tags + FastAPI getters from ``xwauth.handlers._common``),
+**xwlogin.handlers.connector_common** (tags + HTTP getters from ``xwauth.handlers._common``),
 **xwlogin.handlers.connector_transport** (OAuth→HTTP + ops hooks via **oauth_errors_connector** / **ops_connector**),
 **xwlogin.form_post_connector** (OIDC ``form_post`` HTML),
 **xwlogin.handlers.connector_auth_factories** (first-party authenticator factories).

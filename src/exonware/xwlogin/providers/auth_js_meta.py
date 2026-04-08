@@ -7,7 +7,7 @@ similar to how Auth.js aggregates built-in providers in one configuration surfac
 Company: eXonware.com
 Author: eXonware Backend Team
 Email: connect@exonware.com
-Version: 0.0.1.1
+Version: 0.0.1.2
 Generation Date: 02-Apr-2026
 """
 

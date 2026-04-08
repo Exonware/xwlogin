@@ -3,8 +3,8 @@
 
 from __future__ import annotations
 from typing import Any, Optional
-from fastapi import Request, Depends, Header
-from fastapi.responses import JSONResponse, RedirectResponse, Response
+from exonware.xwapi.http import Depends, Header, Request
+from exonware.xwapi.http import JSONResponse, RedirectResponse, Response
 from exonware.xwaction import XWAction
 from exonware.xwaction.defs import ActionProfile
 from exonware.xwlogin.handlers.connector_http import (

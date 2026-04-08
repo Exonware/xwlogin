@@ -7,17 +7,18 @@ hosts differ (accounts.feishu.cn vs accounts.larksuite.com).
 Company: eXonware.com
 Author: eXonware Backend Team
 Email: connect@exonware.com
-Version: 0.0.1.1
+Version: 0.0.1.2
 Generation Date: 07-Apr-2026
 """
 
 from __future__ import annotations
 
 from exonware.xwlogin.provider_connector import ABaseProvider, ProviderType, XWProviderConnectionError, XWProviderError
-import json
 from typing import Any, Literal, Optional
 
 from exonware.xwsystem.http_client import AsyncHttpClient
+from exonware.xwsystem.io.errors import SerializationError
+from exonware.xwsystem.io.serialization.formats.text import json as xw_json
 class FeishuProvider(ABaseProvider):
     """
     Feishu Open Platform user OAuth (authorization code → user_access_token).
@@ -101,7 +102,7 @@ class FeishuProvider(ABaseProvider):
             body = response.json()
         except XWProviderConnectionError:
             raise
-        except (json.JSONDecodeError, TypeError, ValueError) as e:
+        except (xw_json.JSONDecodeError, SerializationError, TypeError, ValueError) as e:
             raise XWProviderConnectionError(
                 f"Feishu token response parse error: {e}",
                 error_code="token_exchange_error",

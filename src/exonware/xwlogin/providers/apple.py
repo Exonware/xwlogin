@@ -6,20 +6,21 @@ Apple Sign In OAuth 2.0 provider implementation.
 Company: eXonware.com
 Author: eXonware Backend Team
 Email: connect@exonware.com
-Version: 0.0.1.1
+Version: 0.0.1.2
 Generation Date: 20-Dec-2025
 """
 
 from __future__ import annotations
 
 from exonware.xwlogin.provider_connector import ABaseProvider, ProviderType
-import json
 import time
 from typing import Any, Optional
 
 import jwt
 
 from exonware.xwsystem import get_logger
+from exonware.xwsystem.io.errors import SerializationError
+from exonware.xwsystem.io.serialization.formats.text import json as xw_json
 logger = get_logger(__name__)
 
 # Apple: client_secret must be an ES256 JWT; exp must be <= ~6 months from iat.
@@ -44,8 +45,8 @@ def parse_apple_authorization_user(user_json: str | bytes | bytearray | None) ->
     if not str(user_json).strip():
         return {}
     try:
-        raw = json.loads(user_json)
-    except (json.JSONDecodeError, TypeError, ValueError):
+        raw = xw_json.loads(user_json)
+    except (xw_json.JSONDecodeError, SerializationError, TypeError, ValueError):
         return {}
     if not isinstance(raw, dict):
         return {}

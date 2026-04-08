@@ -7,6 +7,15 @@ import pytest
 pytestmark = pytest.mark.xwlogin_core
 
 
+def test_top_level_xwlogin_alias_matches_exonware_package() -> None:
+    import xwlogin as tl
+    import exonware.xwlogin as ns
+
+    assert tl is ns
+    assert tl.__version__ == ns.__version__
+    assert tl.form_post_connector is ns.form_post_connector
+
+
 def test_form_post_connector_matches_implementation() -> None:
     from exonware.xwlogin.form_post_connector import render_oidc_form_post_html as fpc
     from exonware.xwlogin.handlers.oauth_form_post import render_oidc_form_post_html as impl

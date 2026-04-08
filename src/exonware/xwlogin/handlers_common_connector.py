@@ -1,5 +1,5 @@
 # exonware/xwlogin/handlers_common_connector.py
-"""FastAPI/OpenAPI glue from the connector (`xwauth.handlers._common`).
+"""HTTP/OpenAPI glue from the connector (`xwauth.handlers._common`).
 
 Package-level façade: OpenAPI tag lists and request-scoped getters live in **xwauth** so connector
 and login mixins stay aligned. ``handlers.connector_common`` re-exports this module for the

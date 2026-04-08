@@ -6,7 +6,7 @@ Steam OpenID provider implementation (Steam uses OpenID, not OAuth 2.0).
 Company: eXonware.com
 Author: eXonware Backend Team
 Email: connect@exonware.com
-Version: 0.0.1.1
+Version: 0.0.1.2
 Generation Date: 25-Jan-2026
 """
 

@@ -1,4 +1,4 @@
-"""First-party HTTP surface: ``mixins`` (FastAPI/XWAction routes), ``authenticators`` (factories),
+"""First-party HTTP surface: ``mixins`` (xwapi HTTP types + XWAction routes), ``authenticators`` (factories),
 ``connector_http`` (full façade for route code), ``connector_common`` (re-export of package
 ``handlers_common_connector`` / ``xwauth.handlers._common``), ``connector_transport`` (OAuth→HTTP + ops hooks via ``oauth_errors_connector`` / ``ops_connector``), and
 ``oauth_form_post`` (OIDC ``form_post`` HTML implementation; façade ``form_post_connector``), ``connector_auth_factories`` (email/magic-link/OTP
@@ -7,7 +7,7 @@ authenticator factories). Prefer ``connector_http`` for imports.
 Submodules load on first access (PEP 562) so ``import exonware.xwlogin.handlers`` stays light until
 you use ``handlers.mixins``, ``handlers.authenticators``, ``handlers.connector_http``,
 ``handlers.connector_common``, or ``handlers.connector_transport``. Route mixins need optional extra
-``exonware-xwlogin[handlers]`` (FastAPI + xwaction) at runtime.
+``exonware-xwlogin[full]`` (exonware-xwapi + xwaction) at runtime.
 ``api_services_connector`` bundles login mixins + ``get_provider_callback_routes`` for xwauth-api-style hosts.
 ``connector_route_mixins`` re-exports **xwauth** OAuth/OIDC/SCIM handler mixins for AS route registration.
 """

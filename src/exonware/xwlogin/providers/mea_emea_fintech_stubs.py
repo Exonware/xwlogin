@@ -10,7 +10,7 @@ directing implementers to partner APIs, Safaricom/Airtel portals, or Antom/Alipa
 Company: eXonware.com
 Author: eXonware Backend Team
 Email: connect@exonware.com
-Version: 0.0.1.1
+Version: 0.0.1.2
 Generation Date: 06-Apr-2026
 """
 

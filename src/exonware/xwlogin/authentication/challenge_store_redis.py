@@ -3,9 +3,10 @@
 
 from __future__ import annotations
 
-import json
 import secrets
 from exonware.xwsystem import get_logger
+from exonware.xwsystem.io.errors import SerializationError
+from exonware.xwsystem.io.serialization.formats.text import json as xw_json
 
 from .challenge_store import Purpose
 
@@ -50,7 +51,7 @@ class RedisWebAuthnChallengeStore:
         ttl = int(ttl_seconds if ttl_seconds is not None else self._default_ttl)
         if ttl < 1:
             ttl = 1
-        payload = json.dumps(
+        payload = xw_json.dumps(
             {"c": challenge_b64url, "p": purpose, "u": user_id},
             separators=(",", ":"),
         )
@@ -68,8 +69,8 @@ class RedisWebAuthnChallengeStore:
         if not raw:
             raise ValueError("challenge_not_found")
         try:
-            data = json.loads(raw)
-        except json.JSONDecodeError as e:
+            data = xw_json.loads(raw)
+        except (xw_json.JSONDecodeError, SerializationError) as e:
             logger.warning("Corrupt webauthn challenge payload for handle prefix")
             raise ValueError("challenge_not_found") from e
         if data.get("p") != purpose:

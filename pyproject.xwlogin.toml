@@ -1,4 +1,4 @@
-# Source size (src/*): ~811.5 KB
+# Source size (src/*): ~815.6 KB
 [build-system]
 requires = [
     "hatchling",
@@ -30,11 +30,18 @@ dependencies = [
 ]
 
 [project.license]
-text = "MIT"
+text = "Apache-2.0"
 
 [project.optional-dependencies]
-handlers = [
-    "exonware-xwlogin[handlers]",
+# First-party XW libs composed by this package (excludes exonware-xwsystem; see lazy/full).
+xw = [
+    "exonware-xwlogin[xw]",
+]
+lazy = [
+    "exonware-xwlogin[lazy]",
+]
+full = [
+    "exonware-xwlogin[full]",
 ]
 dev = [
     "exonware-xwlogin[dev]",

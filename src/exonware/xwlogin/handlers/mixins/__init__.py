@@ -1,4 +1,4 @@
-"""Login-focused FastAPI route mixins (password, OTP, passkeys, SAML, SSO callbacks, etc.).
+"""Login-focused XWAction route mixins (password, OTP, passkeys, SAML, SSO callbacks, etc.).
 
 Submodules load on first attribute access (PEP 562) so ``import …handlers.mixins`` stays cheap until
 a concrete route module is needed.

@@ -10,9 +10,10 @@ Generation Date: 20-Dec-2025
 """
 
 import base64
-import json
 
 import pytest
+
+from exonware.xwsystem.io.serialization.formats.text import json as xw_json
 from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.primitives.asymmetric import ec
 from urllib.parse import parse_qs, urlparse
@@ -213,11 +214,11 @@ class TestAppleProvider:
         parts = token.split(".")
         assert len(parts) == 3
         pad = "=" * (-len(parts[0]) % 4)
-        header = json.loads(base64.urlsafe_b64decode(parts[0] + pad))
+        header = xw_json.loads(base64.urlsafe_b64decode(parts[0] + pad))
         assert header["alg"] == "ES256"
         assert header["kid"] == "K1"
         pad2 = "=" * (-len(parts[1]) % 4)
-        body = json.loads(base64.urlsafe_b64decode(parts[1] + pad2))
+        body = xw_json.loads(base64.urlsafe_b64decode(parts[1] + pad2))
         assert body["iss"] == "T1"
         assert body["sub"] == "com.example.svc"
         assert body["aud"] == APPLE_TOKEN_AUDIENCE
@@ -238,7 +239,7 @@ class TestAppleProvider:
         )
         parts = token.split(".")
         pad2 = "=" * (-len(parts[1]) % 4)
-        body = json.loads(base64.urlsafe_b64decode(parts[1] + pad2))
+        body = xw_json.loads(base64.urlsafe_b64decode(parts[1] + pad2))
         assert body["exp"] - body["iat"] <= APPLE_MAX_CLIENT_SECRET_TTL_SECONDS
 
     @pytest.mark.asyncio

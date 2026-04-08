@@ -10,7 +10,7 @@ callers route to partner banking APIs, MELI/CPay docs, or national payment syste
 Company: eXonware.com
 Author: eXonware Backend Team
 Email: connect@exonware.com
-Version: 0.0.1.1
+Version: 0.0.1.2
 Generation Date: 06-Apr-2026
 """
 

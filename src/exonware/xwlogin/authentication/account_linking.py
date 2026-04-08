@@ -6,7 +6,7 @@ Account linking and merging functionality.
 Company: eXonware.com
 Author: eXonware Backend Team
 Email: connect@exonware.com
-Version: 0.0.1.1
+Version: 0.0.1.2
 Generation Date: 20-Dec-2025
 """
 
