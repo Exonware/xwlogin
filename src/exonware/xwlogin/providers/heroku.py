@@ -6,7 +6,7 @@ Platform API via id.heroku.com OAuth 2.0.
 Company: eXonware.com
 Author: eXonware Backend Team
 Email: connect@exonware.com
-Version: 0.0.1.2
+Version: 0.0.1.3
 Generation Date: 02-Apr-2026
 """
 

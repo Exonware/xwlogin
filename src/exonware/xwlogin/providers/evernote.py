@@ -6,7 +6,7 @@ Evernote OAuth 1.0a provider implementation (Evernote uses OAuth 1.0a, not 2.0).
 Company: eXonware.com
 Author: eXonware Backend Team
 Email: connect@exonware.com
-Version: 0.0.1.2
+Version: 0.0.1.3
 Generation Date: 25-Jan-2026
 """
 

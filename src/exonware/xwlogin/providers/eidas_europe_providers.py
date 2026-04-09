@@ -10,7 +10,7 @@ France Connect paths are environment-specific (integration vs production).
 Company: eXonware.com
 Author: eXonware Backend Team
 Email: connect@exonware.com
-Version: 0.0.1.2
+Version: 0.0.1.3
 Generation Date: 02-Apr-2026
 """
 

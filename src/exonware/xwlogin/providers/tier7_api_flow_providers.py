@@ -14,7 +14,7 @@ callers to the vendor's documented integration (REST, SDK, or widget).
 Company: eXonware.com
 Author: eXonware Backend Team
 Email: connect@exonware.com
-Version: 0.0.1.2
+Version: 0.0.1.3
 Generation Date: 02-Apr-2026
 """
 

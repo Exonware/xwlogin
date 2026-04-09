@@ -8,7 +8,7 @@ def _today_release_date() -> str:
     return datetime.now().strftime("%d-%b-%Y")
 
 
-__version__ = "0.0.1.2"
+__version__ = "0.0.1.3"
 __author__ = "eXonware Backend Team"
 __email__ = "connect@exonware.com"
 __date__ = _today_release_date()

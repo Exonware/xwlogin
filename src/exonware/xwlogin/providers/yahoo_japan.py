@@ -6,7 +6,7 @@ Distinct from U.S. Yahoo (`yahoo.py`); uses auth.login.yahoo.co.jp YConnect v2.
 Company: eXonware.com
 Author: eXonware Backend Team
 Email: connect@exonware.com
-Version: 0.0.1.2
+Version: 0.0.1.3
 Generation Date: 07-Apr-2026
 """
 

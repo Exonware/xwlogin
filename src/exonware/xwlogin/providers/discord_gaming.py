@@ -7,7 +7,7 @@ need a distinct provider key (e.g. game launcher vs workplace Discord).
 Company: eXonware.com
 Author: eXonware Backend Team
 Email: connect@exonware.com
-Version: 0.0.1.2
+Version: 0.0.1.3
 Generation Date: 02-Apr-2026
 """
 

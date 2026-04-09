@@ -1,0 +1,8 @@
+projects:
+  xwlogin:
+    repo: xwlogin
+    package_main: exonware-xwlogin
+    package_wrapper: xwlogin
+    python_version: "3.12"
+    has_wrapper: true
+    uses_check_versions: true

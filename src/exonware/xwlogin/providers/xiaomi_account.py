@@ -6,7 +6,7 @@ Mi Passport authorization-code flow for ecosystem / HyperOS developer apps.
 Company: eXonware.com
 Author: eXonware Backend Team
 Email: connect@exonware.com
-Version: 0.0.1.2
+Version: 0.0.1.3
 Generation Date: 07-Apr-2026
 """
 
