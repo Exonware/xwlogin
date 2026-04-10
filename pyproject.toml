@@ -6,7 +6,7 @@ build-backend = "hatchling.build"
 [project]
 name = "exonware-xwlogin"
 dynamic = ["version"]
-description = "Login layer for XW-Auth: IdP catalog, OAuth RP clients, WebAuthn/MFA, first-party authenticators"
+description = "Login and IdP catalog: WebAuthn/MFA, first-party authenticators — integrate authorization servers via OAuth 2.0 / OIDC HTTP APIs (uses exonware-xwauth types when embedded in-process)"
 readme = "README.md"
 requires-python = ">=3.12"
 authors = [
@@ -16,7 +16,8 @@ keywords = ["oauth2", "oidc", "identity", "login", "providers", "exonware"]
 classifiers = []
 dependencies = [
   "pyotp",
-  # REF_41 §1 / §7: target is **no** xwauth here; kept until foundation types move into xwlogin (pip cycle).
+  # Shared AS types and HTTP handler surface today live in exonware-xwauth; keep HTTP/API boundaries
+  # OAuth 2.0 / OIDC-first for cross-product integration.
   "exonware-xwauth",
   "exonware-xwsystem",
 ]
@@ -29,7 +30,6 @@ text = "Apache-2.0"
 xw = [
   "exonware-xwaction",
   "exonware-xwapi",
-  "exonware-xwauth",
   "exonware-xwdata",
   "exonware-xwentity",
   "exonware-xwjson",
@@ -43,7 +43,6 @@ lazy = [
   "exonware-xwsystem[lazy]",
   "exonware-xwaction[xw]",
   "exonware-xwapi[xw]",
-  "exonware-xwauth[xw]",
   "exonware-xwdata[xw]",
   "exonware-xwentity[xw]",
   "exonware-xwjson[xw]",
@@ -56,7 +55,6 @@ full = [
   "exonware-xwsystem[full]",
   "exonware-xwaction[xw]",
   "exonware-xwapi[xw]",
-  "exonware-xwauth[xw]",
   "exonware-xwdata[xw]",
   "exonware-xwentity[xw]",
   "exonware-xwjson[xw]",

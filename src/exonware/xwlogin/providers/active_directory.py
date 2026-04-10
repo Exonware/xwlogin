@@ -7,7 +7,7 @@ This provider uses ADFS or Azure AD for authentication.
 Company: eXonware.com
 Author: eXonware Backend Team
 Email: connect@exonware.com
-Version: 0.0.1.3
+Version: 0.0.1.4
 Generation Date: 25-Jan-2026
 """
 

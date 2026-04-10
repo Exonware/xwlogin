@@ -57,6 +57,6 @@ For backwards compatibility, `from exonware.xwauth.providers import GoogleProvid
 ## 📜 License
 
 MIT — see [LICENSE](LICENSE) if present in your checkout.
-Version: 0.0.1.3 | Updated: 10-Apr-2026
+Version: 0.0.1.4 | Updated: 11-Apr-2026
 
 *Built with ❤️ by eXonware.com - Revolutionizing Python Development Since 2025*

@@ -6,7 +6,7 @@ Consumer HMS “Log in with HUAWEI ID” — OAuth v3 authorize and token endpoi
 Company: eXonware.com
 Author: eXonware Backend Team
 Email: connect@exonware.com
-Version: 0.0.1.3
+Version: 0.0.1.4
 Generation Date: 07-Apr-2026
 """
 

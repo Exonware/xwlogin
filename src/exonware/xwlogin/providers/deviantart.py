@@ -6,7 +6,7 @@ OAuth 2.1 apps require PKCE (S256) for authorization code flow.
 Company: eXonware.com
 Author: eXonware Backend Team
 Email: connect@exonware.com
-Version: 0.0.1.3
+Version: 0.0.1.4
 Generation Date: 02-Apr-2026
 """
 

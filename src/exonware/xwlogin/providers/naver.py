@@ -6,7 +6,7 @@ Naver (South Korea) OAuth 2.0 — national portal/search IdP alongside Kakao.
 Company: eXonware.com
 Author: eXonware Backend Team
 Email: connect@exonware.com
-Version: 0.0.1.3
+Version: 0.0.1.4
 Generation Date: 07-Apr-2026
 """
 
