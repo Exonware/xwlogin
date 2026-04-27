@@ -1,0 +1,85 @@
+# Source size (src/*): ~815.6 KB
+[build-system]
+requires = [
+    "hatchling",
+]
+build-backend = "hatchling.build"
+
+[project]
+name = "xwlogin"
+dynamic = [
+    "version",
+]
+description = "Convenience wrapper for exonware-xwauth-identity==0.0.1.4 - provides 'import xwlogin' alias"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [
+    { name = "eXonware Backend Team", email = "connect@exonware.com" },
+]
+keywords = [
+    "oauth2",
+    "oidc",
+    "identity",
+    "login",
+    "providers",
+    "exonware",
+]
+classifiers = []
+dependencies = [
+    "exonware-xwauth-identity==0.0.1.4",
+]
+
+[project.license]
+text = "Apache-2.0"
+
+[project.optional-dependencies]
+# First-party XW libs composed by this package (excludes exonware-xwsystem==0.9.0.37; see lazy/full).
+xw = [
+    "exonware-xwauth-identity[xw]==0.0.1.4",
+]
+lazy = [
+    "exonware-xwauth-identity[lazy]==0.0.1.4",
+]
+full = [
+    "exonware-xwauth-identity[full]==0.0.1.4",
+]
+dev = [
+    "exonware-xwauth-identity[dev]==0.0.1.4",
+]
+
+[project.urls]
+Homepage = "https://github.com/exonware/xwauth.identity"
+Repository = "https://github.com/exonware/xwauth.identity"
+Issues = "https://github.com/exonware/xwauth.identity/issues"
+
+[tool.pytest.ini_options]
+testpaths = [
+    "tests",
+]
+python_files = [
+    "test_*.py",
+]
+asyncio_mode = "auto"
+addopts = [
+    "--tb=short",
+]
+markers = [
+    "xwlogin_core: fast core / boundary tests (GUIDE_51)",
+    "xwlogin_unit: unit-layer tests (GUIDE_51)",
+]
+
+[tool.hatch.version]
+path = "src/exonware/xwauth.identity/version.py"
+
+[tool.hatch.build.targets.wheel]
+only-include = [
+    "README.md",
+    "src/xwlogin_wrapper.py",
+]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src",
+    "/tests",
+    "/README.md",
+]

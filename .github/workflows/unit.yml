@@ -1,0 +1,30 @@
+name: xwlogin unit tests
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    paths:
+      - "src/exonware/xwauth.identity/**"
+      - "tests/**"
+      - "pyproject.toml"
+      - ".github/workflows/unit.yml"
+
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest pytest-asyncio pytest-cov
+          pip install -e ".[handlers,dev]"
+
+      - name: Pytest
+        run: pytest tests/ -q --tb=short

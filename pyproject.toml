@@ -1,0 +1,96 @@
+# Source size (src/*): ~815.6 KB
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "exonware-xwauth-identity"
+dynamic = ["version"]
+description = "Login and IdP catalog: WebAuthn/MFA, first-party authenticators — OAuth 2.0 / OIDC authorization server surface (standalone; does not depend on exonware-xwauth-connect)"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [
+  { name = "eXonware Backend Team", email = "connect@exonware.com" },
+]
+keywords = ["oauth2", "oidc", "identity", "login", "providers", "exonware"]
+classifiers = []
+dependencies = [
+  "pyotp",
+  # Independence: do not declare exonware-xwauth-connect; optional runtime discovery only (see identity.__init__).
+  "exonware-xwsystem==0.9.0.43",
+]
+
+[project.license]
+text = "Apache-2.0"
+
+[project.optional-dependencies]
+# First-party XW libs composed by this package (excludes exonware-xwsystem==0.9.0.37; see lazy/full).
+xw = [
+  "exonware-xwaction==0.9.0.16",
+  "exonware-xwapi==0.9.0.12",
+  "exonware-xwdata==0.9.0.18",
+  "exonware-xwentity==0.6.0.12",
+  "exonware-xwjson==0.9.0.24",
+  "exonware-xwmodels==0.6.0.13",
+  "exonware-xwnode==0.9.0.26",
+  "exonware-xwquery==0.9.0.16",
+]
+lazy = [
+  "exonware-xwauth-identity[xw]==0.0.1.4",
+  "exonware-xwlazy==1.0.1.82",
+  "exonware-xwsystem[lazy]==0.9.0.43",
+  "exonware-xwaction[xw]==0.9.0.16",
+  "exonware-xwapi[xw]==0.9.0.12",
+  "exonware-xwdata[xw]==0.9.0.18",
+  "exonware-xwentity[xw]==0.6.0.12",
+  "exonware-xwjson[xw]==0.9.0.24",
+  "exonware-xwmodels[xw]==0.6.0.13",
+  "exonware-xwnode[xw]==0.9.0.26",
+  "exonware-xwquery[xw]==0.9.0.16",
+]
+full = [
+  "exonware-xwauth-identity[xw]==0.0.1.4",
+  "exonware-xwsystem[full]==0.9.0.43",
+  "exonware-xwaction[xw]==0.9.0.16",
+  "exonware-xwapi[xw]==0.9.0.12",
+  "exonware-xwdata[xw]==0.9.0.18",
+  "exonware-xwentity[xw]==0.6.0.12",
+  "exonware-xwjson[xw]==0.9.0.24",
+  "exonware-xwmodels[xw]==0.6.0.13",
+  "exonware-xwnode[xw]==0.9.0.26",
+  "exonware-xwquery[xw]==0.9.0.16",
+]
+dev = [
+  "exonware-xwauth-identity[full]==0.0.1.4",
+  "pytest>=7.0.0",
+  "pytest-asyncio>=0.21.0",
+  "pytest-cov>=4.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/exonware/xwauth.identity"
+Repository = "https://github.com/exonware/xwauth.identity"
+Issues = "https://github.com/exonware/xwauth.identity/issues"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+asyncio_mode = "auto"
+addopts = ["--tb=short"]
+markers = [
+  "xwauth_identity_core: fast core / boundary tests (GUIDE_51)",
+  "xwauth_identity_unit: unit-layer tests (GUIDE_51)",
+]
+
+[tool.hatch.version]
+path = "src/exonware/xwauth/identity/version.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/exonware"]
+# NOTE: top-level ``xwlogin.py`` alias (backward-compat import shim) has been
+# removed per the "no shims, no backward compat" architectural rule. The
+# canonical import path is ``exonware.xwauth.identity``. The ``py-modules``
+# directive that referenced ``src/xwlogin`` is intentionally absent.
+
+[tool.hatch.build.targets.sdist]
+include = ["/src", "/tests", "/README.md"]
